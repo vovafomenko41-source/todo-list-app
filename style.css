@@ -1,0 +1,482 @@
+
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 40px 20px;
+    min-height: 100vh;
+    background-image: url("lokkkk.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    transition: background-color 0.4s;
+}
+
+
+/* CONTAINER */
+
+.container {
+    max-width: 750px;
+    margin: auto;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.93);
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+
+/* HEADER */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+h1 {
+    color: #333;
+    margin-bottom: 30px;
+}
+
+
+/* DARK MODE */
+
+.theme-button {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: none;
+    background-color: #333;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+
+/* INPUTS */
+
+.input-container {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+
+input,
+select {
+    padding: 12px;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+}
+
+
+#taskInput {
+    flex: 1;
+    min-width: 200px;
+}
+
+
+#dateInput,
+#timeInput,
+#priorityInput {
+    width: 150px;
+}
+
+
+#addButton {
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    padding: 12px 18px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+
+    #addButton:hover {
+        background-color: #555;
+    }
+
+
+/* SEARCH */
+
+#searchInput {
+    width: 100%;
+    margin-top: 15px;
+}
+
+
+/* FILTER */
+
+.filter-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+
+.filter {
+    border: none;
+    padding: 10px 16px;
+    border-radius: 7px;
+    cursor: pointer;
+    background-color: #e5e5e5;
+}
+
+
+    .filter.active {
+        background-color: #333;
+        color: white;
+    }
+
+
+/* PROGRESS */
+
+.progress-container {
+    margin-top: 25px;
+}
+
+
+.progress-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+
+.progress-bar {
+    width: 100%;
+    height: 20px;
+    background-color: #ddd;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+
+.progress-fill {
+    height: 100%;
+    width: 0%;
+    background-color: #4caf50;
+    border-radius: 20px;
+    transition: width 0.5s ease;
+}
+
+
+/* COUNTER */
+
+#counter {
+    text-align: center;
+    color: #666;
+    margin: 20px 0;
+}
+
+
+/* DELETE COMPLETED */
+
+.delete-completed {
+    display: block;
+    margin: 0 auto 20px auto;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 7px;
+    background-color: #d9534f;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+
+    .delete-completed:hover {
+        background-color: #c9302c;
+    }
+
+
+/* TASK LIST */
+
+#taskList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+
+/* TASK */
+
+.task {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f8f8f8;
+    padding: 15px;
+    margin-bottom: 12px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    animation: taskAppear 0.4s ease;
+}
+
+
+.task-content {
+    flex: 1;
+}
+
+
+.task-text {
+    font-size: 17px;
+    color: #333;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+
+.task-date {
+    display: block;
+    font-size: 12px;
+    color: #888;
+    margin-top: 5px;
+}
+
+
+.task-due {
+    display: block;
+    font-size: 13px;
+    color: #d9534f;
+    margin-top: 4px;
+}
+
+
+/* PRIORITY */
+
+.priority {
+    display: inline-block;
+    margin-top: 7px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+
+.priority-high {
+    color: #d9534f;
+}
+
+
+.priority-medium {
+    color: #d9a400;
+}
+
+
+.priority-low {
+    color: #4caf50;
+}
+
+
+/* COMPLETED */
+
+.task.completed .task-text {
+    text-decoration: line-through;
+    opacity: 0.5;
+}
+
+
+.task.completed .task-due {
+    color: #777;
+}
+
+
+/* DELETE BUTTON */
+
+.delete-button {
+    background-color: #d9534f;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    padding: 9px 12px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+
+    .delete-button:hover {
+        background-color: #c9302c;
+    }
+
+
+/* ANIMATION */
+
+@keyframes taskAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(-15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* DARK MODE */
+
+body.dark {
+    background-color: #111;
+}
+
+
+    body.dark .container {
+        background-color: rgba(30, 30, 30, 0.95);
+        color: white;
+    }
+
+
+    body.dark h1 {
+        color: white;
+    }
+
+
+    body.dark .task {
+        background-color: #252525;
+        border-color: #444;
+    }
+
+
+    body.dark .task-text {
+        color: white;
+    }
+
+
+    body.dark input,
+    body.dark select {
+        background-color: #222;
+        color: white;
+        border-color: #555;
+    }
+
+
+    body.dark .filter {
+        background-color: #444;
+        color: white;
+    }
+
+
+        body.dark .filter.active {
+            background-color: white;
+            color: #222;
+        }
+
+
+    body.dark #counter {
+        color: #aaa;
+    }
+
+
+    body.dark .progress-bar {
+        background-color: #444;
+    }
+
+
+/* ================================= */
+/* MOBILE DESIGN */
+/* ================================= */
+
+@media (max-width: 650px) {
+
+    body {
+        padding: 10px;
+    }
+
+
+    .container {
+        width: 100%;
+        padding: 20px 15px;
+        border-radius: 15px;
+    }
+
+
+    h1 {
+        font-size: 25px;
+        margin-bottom: 20px;
+    }
+
+
+    .input-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+
+    #taskInput,
+    #dateInput,
+    #timeInput,
+    #priorityInput,
+    #addButton {
+        width: 100%;
+        min-width: 100%;
+        min-height: 48px;
+        font-size: 16px;
+    }
+
+
+    #addButton {
+        font-size: 17px;
+    }
+
+
+    #searchInput {
+        min-height: 48px;
+        font-size: 16px;
+    }
+
+
+    .filter-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 7px;
+    }
+
+
+    .filter {
+        min-height: 45px;
+        padding: 8px 5px;
+    }
+
+
+    .task {
+        padding: 15px 12px;
+    }
+
+
+    .task-text {
+        font-size: 16px;
+    }
+
+
+    .delete-button {
+        min-width: 48px;
+        min-height: 48px;
+        font-size: 18px;
+    }
+
+
+    .delete-completed {
+        width: 100%;
+        min-height: 48px;
+        font-size: 15px;
+    }
+
+
+    .theme-button {
+        width: 48px;
+        height: 48px;
+    }
+}
+

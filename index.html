@@ -1,0 +1,147 @@
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Meine To-Do-Liste</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="header">
+
+            <h1>Meine To-Do-Liste</h1>
+
+            <button id="themeButton" class="theme-button">
+                🌙
+            </button>
+
+        </div>
+
+
+        <!-- AUFGABE ERSTELLEN -->
+
+        <div class="input-container">
+
+            <input type="text"
+                   id="taskInput"
+                   placeholder="Neue Aufgabe...">
+
+            <input type="date"
+                   id="dateInput">
+
+            <input type="time"
+                   id="timeInput">
+
+            <select id="priorityInput">
+
+                <option value="high">🔴 Hoch</option>
+
+                <option value="medium" selected>
+                    🟡 Mittel
+                </option>
+
+                <option value="low">
+                    🟢 Niedrig
+                </option>
+
+            </select>
+
+            <button id="addButton">
+                Hinzufügen
+            </button>
+
+        </div>
+
+
+        <!-- SUCHE -->
+
+        <div class="search-container">
+
+            <input type="text"
+                   id="searchInput"
+                   placeholder="🔍 Aufgaben suchen...">
+
+        </div>
+
+
+        <!-- FILTER -->
+
+        <div class="filter-container">
+
+            <button class="filter active" data-filter="all">
+                Alle
+            </button>
+
+            <button class="filter" data-filter="open">
+                Offen
+            </button>
+
+            <button class="filter" data-filter="completed">
+                Erledigt
+            </button>
+
+        </div>
+
+
+        <!-- FORTSCHRITT -->
+
+        <div class="progress-container">
+
+            <div class="progress-header">
+
+                <span>📊 Fortschritt</span>
+
+                <span id="progressPercent">
+                    0%
+                </span>
+
+            </div>
+
+            <div class="progress-bar">
+
+                <div id="progressFill"
+                     class="progress-fill">
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- COUNTER -->
+
+        <p id="counter">
+            0 Aufgaben, 0 erledigt
+        </p>
+
+
+        <!-- ERLEDIGTE LÖSCHEN -->
+
+        <button id="deleteCompletedButton"
+                class="delete-completed">
+
+            🧹 Alle erledigten löschen
+
+        </button>
+
+
+        <!-- AUFGABEN -->
+
+        <ul id="taskList"></ul>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
+
+
